@@ -19,7 +19,7 @@ parameters.  Instead of printing to the console, we print HTML and CSS.
 We'll only have two models in a one-to-many relationship; no different than
 your command-line TODO app.
 
-There is a skeleton available in `/source`, as per usual
+The challenge repo includes a Sinatra skeleton as usual.
 
 ## Releases
 
