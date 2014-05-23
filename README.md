@@ -109,9 +109,6 @@ One last feature to add: the "this is awesome" feature.  What does awesome
 mean?  It can mean anything.  The code is awesome, there are new awesome
 features, the design is awesome.
 
-We'll be picking one pair at random tomorrow morning to show off their version
-of Craigslist.  They'll get a full-on UX and code review.
-
 This isn't a race; there's no finish line, only a deadline (tomorrow, duh!).
 Take the time to make this application something you're proud of.  It doesn't
 have to be flashy &mdash; it could be a difficult technical hurdle you
