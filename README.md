@@ -85,6 +85,82 @@ Controllers should either redirect to another URL or render a page.  Typically,
 a page loaded via HTTP POST will redirect to an appropriate URL if a request
 succeeds and render an error page, otherwise.
 
+#### Organization
+
+Keeping your code organized is an important part of any software project. Most
+important is following a convention, this way a new member of your team won't
+spend days trying to get their bearings.
+
+Developers might disagree on _which_ convention to follow, but they'll all
+agree any convention is better than none.
+
+In this app you'll have both a `Post` and `Categories` models. The ActiveRecord
+convention is for those to be described in different files:
+
+```text
+app
+| - models
+  | - post.rb
+  | - category.rb
+```
+
+Why not do the same for your controllers? You could have one controller per
+model! Each controller would handle all the requests (CRUD) for each that
+model. E.g.:
+
+
+```text
+app
+| - controllers
+  | - post.rb
+  | - category.rb
+  | - index.rb
+```
+
+You might keep `index.rb` around for requests that aren't for a `Category` or
+`Post`. Your `/` landing page would be a good fit for `index.rb`
+
+The same organizational technique can be applied to your erb views. Instead of
+filling up your `app/views` directory with a half dozen erb templates:
+
+```text
+app
+| - views
+  | - category_index.erb
+  | - category_show.erb
+  | - edit_post.erb
+  | - new_post.erb
+  | - post_show.erb
+  | - posts_index.erb
+```
+
+Why not create a `posts` and `categories` sub-directory?
+
+```text
+app
+| - views
+  | - posts
+    | - edit.erb
+    | - new.erb
+    | - show.erb
+    | - index.erb
+  | - categories
+    | - index.erb
+    | - show.erb
+```
+
+Not, with the sub-directories `posts` and `categories` our erb template names
+follow a convention. Neat! One tip, you'll need to use some (ahem) interesting
+syntax to render a template inside a sub-directory. Here's an example:
+
+```ruby
+get "/posts" do
+  @posts = Post.all
+
+  erb :"posts/index"
+end
+```
+
 ### Ship it!
 
 Make sure the core features work.  We should be able to download your app, run
