@@ -47,7 +47,7 @@ authentication.  Instead, when someone creates a post they're given a special
 "secret" URL that grants them powers to edit that post that looks like
 
 ```text
-http://craigslist.com/post/123/edit?key=kjansd812
+http://craigslist.com/posts/123/edit?key=kjansd812
 ```
 
 The key is randomly generated.  The person is given their "edit URL" after they
