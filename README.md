@@ -29,8 +29,8 @@ Never heard of a web wireframe? Check out [what Wikipedia has to
 say][wireframe]. **TL;DR** -- figure out what *pages* your app needs, then
 sketch-out the basic *layout* of each and the *connections* between them.
 
-The application will have two core models: `Post` and `Category`.  A `Post`
-belongs to a `Category` and a `Category` has many `Posts`.
+The application will have two core models: `Article` and `Category`.  An `Article`
+belongs to a `Category` and a `Category` has many `Articles`.
 
 A `Category` is something like "Apartment Rentals" or "Auto Parts."
 
@@ -38,27 +38,27 @@ Sit down and work out with your pair what pages you're going to be building.
 At a minimum, you'll need:
 
 1. A page that lists all the categories
-2. A page that lists all the postings in a given category
-3. A page that lets someone create a new posting in a given category
+2. A page that lists all the articles in a given category
+3. A page that lets someone create a new article in a given category
 4. A page that lets someone who has created a page return to edit/update the page
 
 If you're never used Craigslist, it doesn't have any kind of user
-authentication.  Instead, when someone creates a post they're given a special
-"secret" URL that grants them powers to edit that post that looks like
+authentication.  Instead, when someone creates an article they're given a special
+"secret" URL that grants them powers to edit that article that looks like
 
 ```text
-http://craigslist.com/posts/123/edit?key=kjansd812
+http://craigslist.com/articles/123/edit?key=kjansd812
 ```
 
 The key is randomly generated.  The person is given their "edit URL" after they
-successfully create a post.  Anyone with this URL can edit the post.
+successfully create a article.  Anyone with this URL can edit the article.
 
 Think about this like a real web application you might want someone to use.
-What fields should a `Post` have?
+What fields should an `Article` have?
 
 A price, probably.  What should the column type of a money-related column be?
 
-An email, so the poster could be contacted.  Title, description, etc.
+An email, so the author of the article could be contacted.  Title, description, etc.
 
 Spend time enumerating the pages, deciding what should be displayed on each
 one.
@@ -66,20 +66,20 @@ one.
 ### Release 1: Implement Controller Structure
 
 Our controller structure will be more complicated.  We'll want URLs that look
-like `/categories/123` and `/posts/456`.  We'll be using both `get` and `post`
+like `/categories/123` and `/articles/456`.  We'll be using both `get` and `article`
 methods.
 
-To create a new `Post`, for example, we'd want to submit an HTML form using the
-POST http method to the `/posts` URL, like so:
+To create a new `Article`, for example, we'd want to submit an HTML form using the
+POST http method to the `/articles` URL, like so:
 
 ```html
-<form action="/posts" method="post">
+<form action="/articles" method="article">
   <!-- other form elements here -->
 </form>
 ```
 
-and to update an existing record (say with id `1234`) we'd want to post to
-`/posts/1234`.
+and to update an existing record (say with id `1234`) we'd want to article to
+`/articles/1234`.
 
 Controllers should either redirect to another URL or render a page.  Typically,
 a page loaded via HTTP POST will redirect to an appropriate URL if a request
@@ -94,13 +94,13 @@ spend days trying to get their bearings.
 Developers might disagree on _which_ convention to follow, but they'll all
 agree any convention is better than none.
 
-In this app you'll have both a `Post` and `Categories` models. The ActiveRecord
+In this app you'll have both `Article` and `Category` models. The ActiveRecord
 convention is for those to be described in different files:
 
 ```text
 app
 | - models
-  | - post.rb
+  | - article.rb
   | - category.rb
 ```
 
@@ -112,13 +112,13 @@ model. E.g.:
 ```text
 app
 | - controllers
-  | - post.rb
+  | - article.rb
   | - category.rb
   | - index.rb
 ```
 
 You might keep `index.rb` around for requests that aren't for a `Category` or
-`Post`. Your `/` landing page would be a good fit for `index.rb`
+`Article`. Your `/` landing page would be a good fit for `index.rb`
 
 The same organizational technique can be applied to your erb views. Instead of
 filling up your `app/views` directory with a half dozen erb templates:
@@ -128,18 +128,18 @@ app
 | - views
   | - category_index.erb
   | - category_show.erb
-  | - edit_post.erb
-  | - new_post.erb
-  | - post_show.erb
-  | - posts_index.erb
+  | - edit_article.erb
+  | - new_article.erb
+  | - article_show.erb
+  | - articles_index.erb
 ```
 
-Why not create a `posts` and `categories` sub-directory?
+Why not create an `articles` and a `categories` sub-directory?
 
 ```text
 app
 | - views
-  | - posts
+  | - articles
     | - edit.erb
     | - new.erb
     | - show.erb
@@ -149,15 +149,15 @@ app
     | - show.erb
 ```
 
-Not, with the sub-directories `posts` and `categories` our erb template names
+Now with the sub-directories `articles` and `categories` our erb template names
 follow a convention. Neat! One tip, you'll need to use some (ahem) interesting
 syntax to render a template inside a sub-directory. Here's an example:
 
 ```ruby
-get "/posts" do
-  @posts = Post.all
+get "/articles" do
+  @articles = Article.all
 
-  erb :"posts/index"
+  erb :"articles/index"
 end
 ```
 
@@ -167,10 +167,10 @@ Make sure the core features work.  We should be able to download your app, run
 it, and do the following:
 
 1. Choose a category to browse
-2. View all postings in a particular category
-3. View a particular posting
-4. Create my own posting
-5. Edit my postings by using the "secret key" that I get after creating my posting
+2. View all articles in a particular category
+3. View a particular article
+4. Create my own article
+5. Edit my articles by using the "secret key" that I get after creating my articles
 
 When we say "download your app" we mean "check it out from source, run the
 migrations, and start up the server."  Imagine you're showing this great idea
