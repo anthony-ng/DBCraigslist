@@ -66,19 +66,19 @@ one.
 ### Release 1: Implement Controller Structure
 
 Our controller structure will be more complicated.  We'll want URLs that look
-like `/categories/123` and `/articles/456`.  We'll be using both `get` and `article`
+like `/categories/123` and `/articles/456`.  We'll be using both `get` and `post`
 methods.
 
 To create a new `Article`, for example, we'd want to submit an HTML form using the
 POST http method to the `/articles` URL, like so:
 
 ```html
-<form action="/articles" method="article">
+<form action="/articles" method="post">
   <!-- other form elements here -->
 </form>
 ```
 
-and to update an existing record (say with id `1234`) we'd want to article to
+and to update an existing record (say with id `1234`) we'd want to post to
 `/articles/1234`.
 
 Controllers should either redirect to another URL or render a page.  Typically,
