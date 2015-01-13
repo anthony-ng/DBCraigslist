@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><%= @category.title %></h1>
+  <ul>
+    <% if @articles %>
+    <% @articles.each do |article| %>
+    <li><a href="/categories/<%= @category.id %>/articles/<%= article.id %>"><%= article.title.capitalize %></a></li>
+    <% end %>
+    <% elsif @article %>
+
+
+      <h3><%= @article.title.capitalize %></h3>
+      <ul>
+        <li>Description: <%= @article.description %></li>
+        <li>Price: <%= @article.price %></li>
+        <li>Email: <%= @article.email %></li>
+      </ul>
+    <% end %>
+  </ul>
+</div>

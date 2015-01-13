@@ -1,0 +1,13 @@
+  <form action="/categories/:category_id/articles" method="post">
+    Title:<br>
+    <input type="text" name="article[title]"><br>
+    Description:<br>
+    <input type="text" name="article[description]"><br>
+    Price:<br>
+    <input type="text" name="article[price]"><br>
+    Email:<br>
+    <input type="text" name="article[email]"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <p><%= @category.id %></p>
