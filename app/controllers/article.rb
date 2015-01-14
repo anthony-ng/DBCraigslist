@@ -12,14 +12,16 @@ get '/categories/:category_id/articles/new' do
 end
 
 post '/categories/:category_id/articles' do
-  id = params[:category_id]
+  @category = Category.find(params[:category_id])
 
-  article = Article.create(params[:article])
+  @article = Article.create(params[:article])
 
-  article.category = Category.find(id)
-  article.save
+  @article.category = @category
+  @article.save
 
-  redirect "/categories/#{id}/articles"
+  erb :"articles/success"
+
+  # "/categories/#{id}/articles"
 end
 
 get '/categories/:category_id/articles/:article_id' do
@@ -30,10 +32,15 @@ get '/categories/:category_id/articles/:article_id' do
 end
 
 get '/categories/:category_id/articles/:article_id/edit' do
+
   @category = Category.find(params[:category_id])
   @article = @category.articles.find(params[:article_id])
 
-  erb :"articles/edit"
+  if params[:key] == @article.article_key
+    erb :"articles/edit"
+  else
+    redirect '/'
+  end
 end
 
 put '/categories/:category_id/articles/:article_id' do
@@ -53,5 +60,4 @@ delete '/categories/:category_id/articles/:article_id' do
 
   redirect "/categories/#{id}/articles"
 end
-
 
