@@ -8,19 +8,16 @@ end
 
 get '/categories/:category_id/articles' do
   # @category = Category.find(params[:category_id])
-  @articles = @category.articles
+  @all_articles = @category.articles
 
   erb :"articles/show"
 end
 
 get '/categories/:category_id/articles/new' do
-  # @category = Category.find(params[:category_id])
-
   erb :"articles/new"
 end
 
 post '/categories/:category_id/articles' do
-  # @category = Category.find(params[:category_id])
   @article = Article.create(params[:article])
 
   @article.category = @category
@@ -30,16 +27,12 @@ post '/categories/:category_id/articles' do
 end
 
 get '/categories/:category_id/articles/:article_id' do
-  # @category = Category.find(params[:category_id])
   # @article = @category.articles.find(params[:article_id])
 
   erb :"articles/show"
 end
 
 get '/categories/:category_id/articles/:article_id/edit' do
-  # @category = Category.find(params[:category_id])
-  # @article = @category.articles.find(params[:article_id])
-
   if params[:key] == @article.article_key
     erb :"articles/edit"
   else
@@ -48,9 +41,6 @@ get '/categories/:category_id/articles/:article_id/edit' do
 end
 
 put '/categories/:category_id/articles/:article_id' do
-  # @category = Category.find(params[:category_id])
-  # @article = @category.articles.find(params[:article_id])
-
   article.update_attributes(params[:article])
 
   id = params[:category_id]
@@ -59,13 +49,9 @@ put '/categories/:category_id/articles/:article_id' do
 end
 
 delete '/categories/:category_id/articles/:article_id' do
-  # @category = Category.find(params[:category_id])
-  # @article = @category.articles.find(params[:article_id])
-
   article.destroy
 
   id = params[:category_id]
 
   redirect "/categories/#{id}/articles"
 end
-

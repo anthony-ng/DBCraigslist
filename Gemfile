@@ -18,7 +18,10 @@ gem 'rake'
 
 gem 'shotgun'
 
+# Faker
+gem 'faker'
+
+gem 'rspec'
+
 group :test do
-  gem 'faker'
-  gem 'rspec'
 end

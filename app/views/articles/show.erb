@@ -1,26 +1,48 @@
 <div class="container">
   <h1><%= @category.title %></h1>
-  <ul>
-    <% if @articles %>
-    <% @articles.each do |article| %>
-    <li><a href="/categories/<%= @category.id %>/articles/<%= article.id %>"><%= article.title.capitalize %></a></li>
-    <% end %>
+
+  <% if @all_articles %>
+    <ol>
+      <% @all_articles.each do |article| %>
+        <li><a href="/categories/<%= @category.id %>/articles/<%= article.id %>"><%= article.title.capitalize %></a></li>
+      <% end %>
+    </ol>
     <h4><a href="/categories/<%= @category.id %>/articles/new">Add new article</a></h4>
     <h4><a href="/categories">Back</a></h4>
-    <% elsif @article %>
-      <h3><%= @article.title.capitalize %></h3>
-      <ul>
-        <li>Description: <%= @article.description %></li>
-        <li>Price: <%= @article.price %></li>
-        <li>Email: <%= @article.email %></li>
-      </ul>
-      <table>
-        <tr>
-        <li><a href="/categories/<%= @category.id %>/articles/<%= @article.id %>/edit">Edit</a></li>
-
-        <h4><a href="/categories/<%= @category.id %>/articles">Back</a></h4>
+  <% elsif @article %>
+    <h2><%= @article.title.capitalize %></h2>
+    <table id="content">
+      <tr>
+        <th>Description: </th>
+        <td><%= @article.description %></td>
       </tr>
-      </table>
-    <% end %>
-  </ul>
+      <tr class="alt">
+        <th>Price: </th>
+        <td><%= @article.price %></td>
+      </tr>
+      <tr>
+        <th>Email: </th>
+        <td><%= @article.email %></td>
+      </tr>
+      <tr class="alt">
+        <th>Created Date: </th>
+        <td><%= @article.created_at %></td>
+      </tr>
+      <tr>
+        <th>Last Update: </th>
+        <td><%= @article.updated_at %></td>
+      </tr>
+    </table>
+    <table id="footer">
+      <tr>
+        <th>
+          <a href="/categories/<%= @category.id %>/articles/<%= @article.id %>/edit">Edit</a>
+        </th>
+        <th>
+          <h4><a href="/categories/<%= @category.id %>/articles">Back</a></h4>
+        </th>
+      </tr>
+    </table>
+  <% end %>
+
 </div>
