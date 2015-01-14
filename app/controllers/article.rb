@@ -18,19 +18,12 @@ get '/categories/:category_id/articles/new' do
 end
 
 post '/categories/:category_id/articles' do
-<<<<<<< HEAD
-  # @category = Category.find(params[:category_id])
-  article = Article.create(params[:article])
-  article.update_attributes(category_id: 1)
-  redirect "/categories/1/articles"
-=======
   @article = Article.create(params[:article])
 
   @article.category = @category
   @article.save
 
   erb :"articles/success"
->>>>>>> 5c5ed2b04c0969c59d40d1150a58ce7e323f69a6
 end
 
 get '/categories/:category_id/articles/:article_id' do
