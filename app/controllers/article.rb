@@ -41,7 +41,7 @@ get '/categories/:category_id/articles/:article_id/edit' do
 end
 
 put '/categories/:category_id/articles/:article_id' do
-  article.update_attributes(params[:article])
+  @article.update_attributes(params[:article])
 
   id = params[:category_id]
 
@@ -49,7 +49,7 @@ put '/categories/:category_id/articles/:article_id' do
 end
 
 delete '/categories/:category_id/articles/:article_id' do
-  article.destroy
+  @article.destroy
 
   id = params[:category_id]
 
