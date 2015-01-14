@@ -36,7 +36,9 @@ get '/categories/:category_id/articles/:article_id/edit' do
   if params[:key] == @article.article_key
     erb :"articles/edit"
   else
-    redirect '/'
+    @warning = true
+    erb :"articles/show"
+    # redirect '/'
   end
 end
 

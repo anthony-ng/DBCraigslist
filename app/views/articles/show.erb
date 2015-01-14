@@ -9,7 +9,7 @@
     </ol>
     <h4><a href="/categories/<%= @category.id %>/articles/new">Add new article</a></h4>
     <h4><a href="/categories">Back</a></h4>
-  <% elsif @article %>
+  <% elsif @article && !@warning%>
     <h2><%= @article.title.capitalize %></h2>
     <table id="content">
       <tr>
@@ -33,6 +33,41 @@
         <td><%= @article.updated_at %></td>
       </tr>
     </table>
+    <table id="footer">
+      <tr>
+        <th>
+          <a href="/categories/<%= @category.id %>/articles/<%= @article.id %>/edit">Edit</a>
+        </th>
+        <th>
+          <h4><a href="/categories/<%= @category.id %>/articles">Back</a></h4>
+        </th>
+      </tr>
+    </table>
+  <% else %>
+    <h2><%= @article.title.capitalize %></h2>
+    <table id="content">
+      <tr>
+        <th>Description: </th>
+        <td><%= @article.description %></td>
+      </tr>
+      <tr class="alt">
+        <th>Price: </th>
+        <td><%= @article.price %></td>
+      </tr>
+      <tr>
+        <th>Email: </th>
+        <td><%= @article.email %></td>
+      </tr>
+      <tr class="alt">
+        <th>Created Date: </th>
+        <td><%= @article.created_at %></td>
+      </tr>
+      <tr>
+        <th>Last Update: </th>
+        <td><%= @article.updated_at %></td>
+      </tr>
+    </table>
+    <h4>Please enter your secret key!</h4>
     <table id="footer">
       <tr>
         <th>

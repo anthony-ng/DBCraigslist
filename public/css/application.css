@@ -35,3 +35,8 @@
 li {
   font-size: 1.3em;
 }
+
+.success {
+  font-size: 2em;
+  text-align: center;
+}

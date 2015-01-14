@@ -1,2 +1,6 @@
-
-<a href="/categories/<%= @category.id %>/articles/<%= @article.id %>/edit?key=<%=@article.article_key%>"> Edit your article</a>
+<div class="success">
+  <a href="/categories/<%= @category.id %>/articles/<%= @article.id %>/edit?key=<%=@article.article_key%>">
+    <h3>Edit your article</h3>
+  </a>
+  <h4>This is your secret key for future modification: <br><br>"/categories/<%= @category.id %>/articles/<%= @article.id %>/edit?key=<%=@article.article_key%>"</h4>
+</div>
