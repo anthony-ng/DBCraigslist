@@ -1,4 +1,4 @@
-  <form action="/categories/:category_id/articles" method="post">
+  <form action="/categories/<%= @category.id %>/articles" method="post">
     Title:<br>
     <input type="text" name="article[title]"><br>
     Description:<br>
@@ -9,5 +9,3 @@
     <input type="text" name="article[email]"><br><br>
     <input type="submit" value="Submit">
   </form>
-
-  <p><%= @category.id %></p>

@@ -5,15 +5,22 @@
     <% @articles.each do |article| %>
     <li><a href="/categories/<%= @category.id %>/articles/<%= article.id %>"><%= article.title.capitalize %></a></li>
     <% end %>
+    <h4><a href="/categories/<%= @category.id %>/articles/new">Add new article</a></h4>
+    <h4><a href="/categories">Back</a></h4>
     <% elsif @article %>
-
-
       <h3><%= @article.title.capitalize %></h3>
       <ul>
         <li>Description: <%= @article.description %></li>
         <li>Price: <%= @article.price %></li>
         <li>Email: <%= @article.email %></li>
       </ul>
+      <table>
+        <tr>
+        <li><a href="/categories/<%= @category.id %>/articles/<%= @article.id %>/edit">Edit</a></li>
+
+        <h4><a href="/categories/<%= @category.id %>/articles">Back</a></h4>
+      </tr>
+      </table>
     <% end %>
   </ul>
 </div>
