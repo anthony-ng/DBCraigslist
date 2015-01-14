@@ -26,7 +26,6 @@
     color: #ffffff;
 }
 
-
 #content tr.alt td {
     color: #000000;
     background-color: #EAF2D3;
@@ -43,4 +42,56 @@ li {
 
 h5 {
   text-align: center;
+}
+
+input[type=text] {
+  padding:5px;
+  border:2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type=text]:focus {
+  border-color:#333;
+}
+
+input[type=submit] {
+  padding:5px 15px;
+  background: yellow;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: red;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#submit {
+  width: 100px;
+}
+
+#delete {
+  width: 100px;
+}
+
+h1 {
+  font-family: times;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-size: 2.5em;
+  font-stretch: inherit;
+  line-height: inherit;
+  color: blue;
+  text-align: center;
+  margin-left:30px;
+}
+
+div {
+  background: #f4f4f4;
+}
+
+#homepage {
+  text-align: center;
+  list-style: none;
 }

@@ -9,7 +9,6 @@ end
 get '/categories/:category_id/articles' do
   # @category = Category.find(params[:category_id])
   @all_articles = @category.articles
-
   erb :"articles/show"
 end
 
@@ -19,16 +18,13 @@ end
 
 post '/categories/:category_id/articles' do
   @article = Article.create(params[:article])
-
   @article.category = @category
   @article.save
-
   erb :"articles/success"
 end
 
 get '/categories/:category_id/articles/:article_id' do
   # @article = @category.articles.find(params[:article_id])
-
   erb :"articles/show"
 end
 
@@ -38,22 +34,15 @@ get '/categories/:category_id/articles/:article_id/edit' do
   else
     @warning = true
     erb :"articles/show"
-    # redirect '/'
   end
 end
 
 put '/categories/:category_id/articles/:article_id' do
   @article.update_attributes(params[:article])
-
-  id = params[:category_id]
-
-  redirect "/categories/#{id}/articles"
+  redirect "/categories/#{params[:category_id]}/articles"
 end
 
 delete '/categories/:category_id/articles/:article_id' do
   @article.destroy
-
-  id = params[:category_id]
-
-  redirect "/categories/#{id}/articles"
+  redirect "/categories/#{params[:category_id]}/articles"
 end

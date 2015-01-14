@@ -1,17 +1,21 @@
-<form action="/categories/<%= @category.id %>/articles/<%= @article.id %>" method="post">
-  <input type="hidden" name="_method" value="put">
-  Title:<br>
-  <input type="text" name="article[title]" value="<%= @article.title %>"><br>
-  Description:<br>
-  <input type="text" name="article[description]" value="<%= @article.description %>"><br>
-  Price:<br>
-  <input type="text" name="article[price]" value="<%= @article.price %>"><br>
-  Email:<br>
-  <input type="text" name="article[email]" value="<%= @article.email %>"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<div>
 
-<form action="/categories/<%= @category.id %>/articles/<%= @article.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-</form>
+  <form action="/categories/<%= @category.id %>/articles/<%= @article.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    Title:<br>
+    <input type="text" name="article[title]" value="<%= @article.title %>"><br>
+    Description:<br>
+    <input type="text" name="article[description]" value="<%= @article.description %>"><br>
+    Price:<br>
+    <input type="text" name="article[price]" value="<%= @article.price %>"><br>
+    Email:<br>
+    <input type="text" name="article[email]" value="<%= @article.email %>"><br><br>
+    <input type="submit" value="Submit" id="submit">
+  </form>
+
+  <form action="/categories/<%= @category.id %>/articles/<%= @article.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete" id="delete">
+  </form>
+
+</div>

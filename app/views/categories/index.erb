@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Categories</h1>
-  <ul>
+  <h1>DBCraigslist</h1>
+  <ul id="homepage">
     <% @categories.each do |category| %>
     <li><a href="/categories/<%= category.id %>/articles"><%= category.title %></a></li>
     <% end %>
