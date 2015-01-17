@@ -1,4 +1,4 @@
-# (DBCraigslist)[https://craigslist-clone.herokuapp.com]
+# [DBCraigslist](https://craigslist-clone.herokuapp.com)
 
 ## Summary
 
