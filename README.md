@@ -1,6 +1,11 @@
-# Craigslist Jr
+# [DBCraigslist](https://craigslist-clone.herokuapp.com)
 
-## Heroku Link[https://craigslist-clone.herokuapp.com]
+## Summary
+
+This is a simple version of Craigslist.  This is also my first
+web application that uses multiple models.
+
+The web app useds a Sinatra framework.
 
 ## Learning Competencies
 
@@ -9,6 +14,7 @@
 * Implement all four parts of [CRUD][]: create, read, update, and delete.
 * Use the MVC pattern in web applications with proper allocation of code and responsibilities to each layer
 
+<<<<<<< HEAD
 ## Summary
 
 We're going to build a simple version of Craigslist.  This will be your first
