@@ -53,7 +53,7 @@ http://craigslist.com/articles/123/edit?key=kjansd812
 ```
 
 The key is randomly generated.  The person is given their "edit URL" after they
-successfully create a article.  Anyone with this URL can edit the article.
+successfully create a article.  Anyone with this URL can edit the article
 
 Think about this like a real web application you might want someone to use.
 What fields should an `Article` have?
